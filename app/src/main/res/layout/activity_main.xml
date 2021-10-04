@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/key"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Key..."
+        android:maxLength="20"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Value..."
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="@+id/key"
+        app:layout_constraintStart_toStartOf="@+id/key"
+        app:layout_constraintTop_toBottomOf="@+id/key" />
+
+    <ListView
+        android:id="@+id/storage"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/value"
+        app:layout_constraintStart_toStartOf="@+id/value"
+        app:layout_constraintTop_toBottomOf="@+id/save"
+        android:longClickable="true">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="@+id/value"
+        app:layout_constraintStart_toStartOf="@+id/value"
+        app:layout_constraintTop_toBottomOf="@+id/value" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:clickable="true"
+        android:elevation="40dp"
+        android:rotation="180"
+        app:backgroundTint="@color/focused_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/focused_value"
+        app:srcCompat="@android:drawable/ic_menu_sort_by_size"
+        tools:ignore="SpeakableTextPresentCheck" />
+</androidx.constraintlayout.widget.ConstraintLayout>

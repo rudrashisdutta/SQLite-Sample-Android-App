@@ -28,7 +28,7 @@ public class DataBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         try{
-            sqLiteDatabase.execSQL("create table " + DB_TABLE + " (_key text primary key, value text, date INTEGER unique);");
+            sqLiteDatabase.execSQL("create table " + DB_TABLE + " (_key text primary key, value text, date INTEGER unique, num REAL);");
             Log.i("Created Table", DB_TABLE);
         }catch (Exception e){
             e.printStackTrace();
@@ -73,7 +73,7 @@ public class DataBase extends SQLiteOpenHelper {
         try{
             database = getWritableDatabase();
             Date dateTimeNow = new Date();
-            database.execSQL("insert into " + DB_TABLE + " (_key, value, date) values('" + key + "','" + value + "'," + dateTimeNow.getTime() + ")");
+            database.execSQL("insert into " + DB_TABLE + " (_key, value, date, num) values('" + key + "','" + value + "'," + dateTimeNow.getTime() + ",122233.221112)");
             success = true;
         } catch (Exception e){
             e.printStackTrace();
@@ -87,7 +87,7 @@ public class DataBase extends SQLiteOpenHelper {
             try (Cursor cursor = database.rawQuery("select * from " + DB_TABLE + " ORDER BY date " + ORDER + ";", null)) {
                 while (cursor.moveToNext()) {
                     data.put(cursor.getString(0), cursor.getString(1));
-                    Log.d("t", cursor.getLong(2) + cursor.getString(0));
+                    Log.e("t", cursor.getLong(2) + "  " + cursor.getDouble(3) + "");
                 }
             }
         } catch (Exception e){

@@ -95,4 +95,14 @@ public class DataBase extends SQLiteOpenHelper {
         }
         return data;
     }
+
+    public static long howMany(Context context){
+        long count = -1;
+        SQLiteDatabase database = new DataBase(context).getReadableDatabase();
+        try(Cursor cursor = database.rawQuery("select count(*) from " + DB_TABLE + ";", null)){
+            cursor.moveToFirst();
+            count = cursor.getInt(0);
+        }
+        return count;
+    }
 }

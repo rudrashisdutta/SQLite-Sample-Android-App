@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -106,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
             }
             key.setText(null);
             value.setText(null);
+            Toast.makeText(this, DataBase.howMany(this) + "", Toast.LENGTH_SHORT).show();
         });
         save.setOnLongClickListener(view -> {
             try {

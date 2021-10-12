@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
             data = dataBase.get(order);
             List<String> keys = new ArrayList<>(data.keySet());
             Log.d("LIST", keys.toString());
-            ListAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, keys);
+            ListAdapter adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, keys);
             storage.setAdapter(adapter);
             success = true;
         } catch (Exception e){
